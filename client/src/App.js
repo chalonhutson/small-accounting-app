@@ -3,19 +3,20 @@ import './App.css';
 
 function App() {
 
-  const thingRef = useRef('defaul')
+  const thingRef = useRef('default')
 
   function addAccountRequest() {
-    console.log("here")
-    fetch(
-      'http://localhost:5000/add-account',
-      {
+    console.log("attempted")
+    fetch('http://localhost:5000/add-account', {
         method: 'POST',
         body: JSON.stringify({
-          thing: thingRef
+            test: 'thing'
         })
-      }
-    ).then(res=>console.log(res))
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Success:', data)
+        })
   }
 
 
@@ -24,7 +25,9 @@ function App() {
       <header className="App-header">
         <form>
           <input ref={thingRef} type='text' name='thing'></input>
-          <button onClick={()=> addAccountRequest()} >Submit</button>
+          <button onClick={()=> {console.log("yeah")
+          addAccountRequest()
+          } }>Submit</button>
         </form>
       </header>
       <main>

@@ -30,8 +30,13 @@ class Transaction(db.Model):
 
 @app.route("/add-account", methods=["POST"])
 def add_account():
-    print(request.form)
+    print("test")
     return {"res": "nice"}
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
     
